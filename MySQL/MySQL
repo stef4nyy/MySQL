@@ -1,0 +1,75 @@
+CREATE DATABASE bancodeteste;
+USE bancodeteste ;
+
+CREATE TABLE cliente(
+codigo int AUTO_INCREMENT,
+nome varchar(60) NOT NULL,
+email varchar(60) NOT NULL,
+senha varchar(60) NOT NULL,
+telefone varchar(60) NOT NULL,
+CPF varchar (60) NOT NULL,
+PRIMARY KEY (codigo)
+
+
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Rafael", "rafaelavelar@gmail.com", "R6783avlzsssss","(96)969342210", "923.532.650-81") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Rayane", "rayyne444857@gmail.com", "rayane444*****","(66)971783140", "579.242.420-90") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Ryan", "Matossryan7770@gmail.com", "Rsouzaa7041279", "(38)982120064", "329.062.730-66") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Eduarda","dudadelimaa0@gmail.com", "dudalima797576", "(83)972192648", "524.683.820-05") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Henrique", "midia01777@gmail.com", "noisemidia7747", "(82)968933145", "328.022.400-48") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Ana Luiza", "anaaluiza@gmail.com", "anaaeluiza7808", "(85)38606221", "210.618.940-02") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Julia Cristina", "juli@gmail.com", "julicristina01", "(98)32372311", "683.425.333-01") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("David Gabriel", "Davvi@gmail.com", " 837643786734",  "(37)37462747", "118.589.100-56") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Eliane Schenner", "Eli@gmail.com", "181****867765",  "(53)27272196", "658.646.750-08") ;
+INSERT INTO cliente(nome, email, senha, telefone, CPF) VALUES ("Pedro Sebastiani", "PS@gmail.com", "*****7*******",  "(68)24346684", "135.185.050-41") ;
+
+
+SELECT * FROM produto;
+SELECT email FROM produto;
+
+CREATE TABLE produtos(
+id int AUTO_INCREMENT,
+produto varchar(10000),
+data_de_venda varchar(100000)
+quantidade varchar(1000),
+id_cliente varchar(100),
+id_produto varchar(500)
+estoque varchar(10000000)
+PRIMARY KEY (id)
+)
+
+INSERT INTO produtos( produto, preço, estoque) VALUES ( "monitor", "R$ 500,00", "100000") ;
+INSERT INTO produtos( produto, preço, estoque) VALUES ( "notebook",  "R$ 4.500,00", "25900");
+INSERT INTO produtos( produto, preço, estoque) VALUES ( "Desktop(s)", "R$ 1890,00", "20000");
+INSERT INTO produtos( produto, preço, estoque) VALUES ( "Mouse(s)", "R$ 25,00", "12000");
+INSERT INTO produtos( produto, preço, estoque) VALUES ( "Fone", "R$170,00", "365");
+INSERT INTO produtos( produto, preço, estoque) VALUES ("Headsets", "R$ 299,90", "380");
+INSERT INTO produtos( produto, preço, estoque) VALUES ("Gabinete", "R$ 299,90", "245");
+INSERT INTO produtos( produto, preço, estoque) VALUES ("Tablet","R$ 299,90", "150");
+INSERT INTO produtos( produto, preço, estoque) VALUES ("Adaptador", "R$ 299,90", "250");
+INSERT INTO produtos( produto, preço, estoque) VALUES ("Pen drive",  "R$ 299,90", "400");
+
+
+
+CREATE TABLE compras(
+id int AUTO_INCREMENT,
+token varchar(100),
+quantidade varchar(100),
+idusuarios int,
+idprodutos int,
+PRIMARY KEY (id),
+FOREIGN KEY (idusuarios) REFERENCES usuarios(idusuarios),
+FOREIGN KEY (idcompras) REFERENCES compras(idcompras)
+);
+
+
+
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 1234, 20-06-2022, 3, 1, 1234 ) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 5678, 04-06-2023, 2, 2, 5678) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 9101, 10-06-2023, 4, 3, 9101) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 1213, 17-08-2024, 4, 4, 1213) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 1415, 22-09-2024, 1, 5, 1415) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 1617, 25-09-2024, 1, 6, 1617) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 1819, 03-10-2024, 1, 7, 1819) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 2021, 07-11-2024, 2, 8, 2021) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 2223, 12-11-2024, 1, 9, 2223) ;
+INSERT INTO compras( produto, data_de_venda, quantidade, idusuarios, idprodutos) VALUES ( 2425, 16-11-2024, 1, 10, 2425) ;
